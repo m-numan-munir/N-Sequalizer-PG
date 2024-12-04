@@ -21,6 +21,7 @@ module.exports = sequelize.define(
       type: Sequelize.STRING,
     },
     email: {
+      unique: true,
       type: Sequelize.STRING,
     },
     password: {
@@ -36,6 +37,7 @@ module.exports = sequelize.define(
     },
     //For soft delete
     deletedAt: {
+      allowNull: true,
       type: Sequelize.DATE,
     },
   },

@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       userType: {
-        type: Sequelize.ENUM,
+        type: Sequelize.ENUM("0", "1", "2"),
       },
       firstName: {
         type: Sequelize.STRING,
@@ -19,6 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       email: {
+        unique: true,
         type: Sequelize.STRING,
       },
       password: {
@@ -32,7 +33,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      deletedAt: {
+      updatedAt: {
+        allowNull: true,
         type: Sequelize.DATE,
       },
     });

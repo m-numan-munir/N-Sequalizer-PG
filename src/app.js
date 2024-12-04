@@ -8,6 +8,8 @@ const PORT = process.env.SERVER_PORT || 3001;
 const app = express();
 app.use(cors());
 
+//Converts coming request data into JSON
+app.use(express.json());
 // Routes
 app.use(process.env.API_V1, rootRouter);
 
@@ -15,6 +17,7 @@ app.use(process.env.API_V1, rootRouter);
 app.use("*", (req, res) => {
   res.status(404).json({ status: "Failed", message: "Endpoint not found" });
 });
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(process.cwd() + "/.env");
